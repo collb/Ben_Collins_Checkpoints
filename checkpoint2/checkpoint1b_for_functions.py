@@ -59,7 +59,7 @@ def standardize_names(df):
         string = mod[i].casefold()
         string = string.split('(')[0]
         mod[i] = string
-    df.columns = pd.Series(mod)
+    df.columns = mod
     return df
 
 def fix_strings(df, col):
@@ -73,7 +73,6 @@ def fix_strings(df, col):
         for k in range(len(remove)):
             string = string.replace(remove[k],'')
         df.at[i, col] = string
-
     return df
 
 
@@ -114,8 +113,6 @@ def main():
     
     # now that the data is all clean, save your output to the `data` folder as 'starbucks_clean.csv'
     # you will use this file in checkpoint 2
-    
-    df.to_csv('starbucks_clean.csv')
     
     
 
